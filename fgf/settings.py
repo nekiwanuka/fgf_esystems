@@ -126,10 +126,10 @@ CORS_ALLOWED_ORIGINS = [
     "https://fgf-project-frontend.vercel.app",
     "http://localhost:5173",
     "http://localhost:8000",
-    "https://.render.com",
-    "3.75.158.163",
-    "3.125.183.140",
-    "35.157.117.28",
+    "https://render.com",
+    "https://3.75.158.163",
+    "https://3.125.183.140",
+    "https://35.157.117.28",
 ]
 
 
