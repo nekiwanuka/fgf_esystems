@@ -18,8 +18,5 @@ RUN echo "workers = 4\nbind = '0.0.0.0:8000'" > gunicorn_config.py
 # Copy the project code into the container
 COPY . /app/
 
-# Expose the port that the application will run on
-EXPOSE 8000
-
-# Command to run the application using Gunicorn
-CMD ["gunicorn", "fgf.wsgi:application", "--config", "gunicorn_config.py"]
+# Run migrations during container startup
+CMD ["sh", "-c", "python manage.py migrate && gunicorn fgf.wsgi:application --config gunicorn_config.py"]
