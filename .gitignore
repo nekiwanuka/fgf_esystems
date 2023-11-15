@@ -2,7 +2,3 @@
 # Ignore virtual environment folder
 env/
 
-# Ignore database file
-db.sqlite3
-
-# Ignore other files or directories as needed

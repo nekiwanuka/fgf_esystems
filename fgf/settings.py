@@ -127,6 +127,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:8000",
     "https://render.com",
+    "https://fgf-app.onrender.com",
     "https://3.75.158.163",
     "https://3.125.183.140",
     "https://35.157.117.28",
