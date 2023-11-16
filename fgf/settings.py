@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "drf_yasg",
     "authenticate",
-    # "auth_app",
+
     "plants_app",
     "animals_app",
     "cultures_app",
@@ -66,20 +66,7 @@ INSTALLED_APPS = [
     "django_filters",
     "corsheaders",
     "bootstrap4",
-    "rest_framework_simplejwt",
-    "rest_framework.authtoken",
-    # add this
-    "rest_authtoken",
-    "dj_rest_auth",
-    "rest_auth",
-    "dj_rest_auth.registration",
-    "django.contrib.sites",
-    # for registration
-    #'auth_app.apps.AuthAppConfig',
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    #'allauth.socialaccount.providers.google',
+
 ]
 
 
@@ -174,75 +161,14 @@ REST_FRAMEWORK = {
 }
 
 
-# AUTH_USER_MODEL = 'auth_app.User'
+
 
 # Domain names to be used
 SITE_ID = 1
 REST_USE_JWT = True
-# JWT_AUTH_COOKIE = 'fgf-app-auth' #set name of cookie
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'pktpaulie@gmail.com'
-# EMAIL_USE_SSL = False
-# #EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-# EMAIL_HOST_PASSWORD = 'jjnz bxij sjpw hfzl'
 
 
-EMAIL_HOST = "sandbox.smtp.mailtrap.io"
-EMAIL_HOST_USER = "736673cbedcc45"
-EMAIL_HOST_PASSWORD = "7ff0aac59287f6"
-EMAIL_PORT = "2525"
 
-# Set JWT configurations
-JWT_AUTH = {
-    "JWT_RESPONSE_PAYLOAD_HANDLER": "shoppinglist.utils.jwt_response_handler",
-}
-
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
-    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
-    "SLIDING_TOKEN_LIFETIME": timedelta(days=7),
-    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=14),
-}
-
-# use email for authentication instead of username
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-# allow the app to verify the user when they open the link received by email
-ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-ACCOUNT_LOGOUT_ON_GET = True
-
-
-# registration
-REGISTRATION_ENABLED = True
-
-
-"""
-FIREBASE_ACCOUNT_TYPE = os.environ.get('FIREBASE_ACCOUNT_TYPE')
-FIREBASE_APIKEY = os.environ.get('FIREBASE_APIKEY')
-FIREBASE_AUTH_DOMAIN = os.environ.get('FIREBASE_AUTH_DOMAIN')
-FIREBASE_PROJECTID = os.environ.get('FIREBASE_PROJECTID')
-FIREBASE_STORAGE_BUCKET = os.environ.get('FIREBASE_STORAGE_BUCKET')
-FIREBASE_MESSAGING_SENDERID = os.environ.get('FIREBASE_MESSAGING_SENDERID')
-FIREBASE_APPID = os.environ.get('FIREBASE_APPID')
-FIREBASE_MEASUREMENTID = os.environ.get('FIREBASE_MEASUREMENTID')
-"""
-
-
-"""config = {
-    'apiKey': os.environ.get('FIREBASE_APIKEY'),
-    'authDomain': os.environ.get('FIREBASE_AUTH_DOMAIN'),
-    'projectId': os.environ.get('FIREBASE_PROJECTID'),
-    'storageBucket': os.environ.get('FIREBASE_STORAGE_BUCKET'),
-    'messagingSenderId': os.environ.get('FIREBASE_MESSAGING_SENDERID'),
-    'appId': os.environ.get('FIREBASE_APPID'),
-    'measurementId': os.environ.get('FIREBASE_MEASUREMENTID')
-}"""
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -259,16 +185,6 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
-}
 
 
 # Other settings...
@@ -316,9 +232,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-# redirect the user to login-url after verification
-LOGIN_URL = "http://localhost:8000/api/login/"
-# LOGIN_REDIRECT_URL = 'http://localhost:8000/auth-app/login'
-LOGOUT_REDIRECT_URL = "/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
