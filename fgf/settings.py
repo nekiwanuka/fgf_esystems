@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # from dj_rest_authallauth import *
-# import dj_database_url
+import dj_database_url
 import datetime
 from datetime import timedelta
 from .utils.authentication_extensions import AuthTokenAuthenticationExtension
@@ -82,24 +82,7 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.google',
 ]
 
-# MIDDLEWARE = [
-#     'corsheaders.middleware.CorsMiddleware',
-#     'django.middleware.common.CommonMiddleware',
 
-#     "django.middleware.security.SecurityMiddleware",
-#     "django.contrib.sessions.middleware.SessionMiddleware",
-#     "django.contrib.staticfiles.middleware.StaticFilesMiddleware",
-
-#     "django.middleware.csrf.CsrfViewMiddleware",
-#     "django.contrib.auth.middleware.AuthenticationMiddleware",
-#     "django.contrib.messages.middleware.MessageMiddleware",
-#     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-
-#     "whitenoise.middleware.WhiteNoiseMiddleware",
-#     #add the middleware for allauth accounts
-#     "allauth.account.middleware.AccountMiddleware",
-#     #
-# ]
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -263,23 +246,35 @@ FIREBASE_MEASUREMENTID = os.environ.get('FIREBASE_MEASUREMENTID')
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASE SETTING
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'fgf-db',
-        # 'USER': 'fgf-app',
-        # 'PASSWORD': 'fgf=password',
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
+        "ENGINE": config("DB_ENGINE", default="django.db.backends.sqlite3"),
+        "NAME": config("DB_NAME", default=""),
+        "USER": config("DB_USER", default=""),
+        "PASSWORD": config("DB_PASSWORD", default=""),
+        "HOST": config("DB_HOST", default=""),
+        "PORT": config("DB_PORT", default=""),
     }
 }
 
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
+    }
+}
+
+
+# Other settings...
+DATABASES = {"default": dj_database_url.config(default=config("DATABASE_URL"))}
+
 ATOMIC_REQUESTS = False
-DATABASES["default"] = config("DATABASES_CRANE_CLOUD")
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
