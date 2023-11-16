@@ -276,8 +276,8 @@ DATABASES = {
     }
 }
 
-
-# DATABASES['default'] = dj_database_url.parse('postgres://fgf_database_user:Hqa4PKjnQGZa33ErpfAYCRpSujZmyp7M@dpg-cka1lbev3ddc739sufb0-a.oregon-postgres.render.com/fgf_database')
+ATOMIC_REQUESTS = False
+DATABASES["default"] = config("DATABASES_CRANE_CLOUD")
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
