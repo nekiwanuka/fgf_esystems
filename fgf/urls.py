@@ -1,5 +1,6 @@
 from django.urls import path, re_path, include
 from django.contrib import admin
+from . import views
 
 
 # Import drf-yasg components
@@ -21,6 +22,9 @@ schema_view = get_schema_view(
 
 # Define your urlpatterns
 urlpatterns = [
+    re_path("login", views.login),
+    re_path("signup", views.signup),
+    re_path("test_token", views.test_token),
     re_path(r"^admin/", admin.site.urls),
     path(
         "api/schema/",
@@ -33,5 +37,4 @@ urlpatterns = [
     path("", include("animals_app.urls"), name="animals"),
     path("", include("cultures_app.urls"), name="cultures"),
     path("", include("plants_app.urls"), name="plants"),
-    
 ]

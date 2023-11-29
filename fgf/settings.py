@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 
@@ -50,10 +49,10 @@ INSTALLED_APPS = [
     "animals_app",
     "cultures_app",
     "rest_framework",
+    "rest_framework.authtoken",
     "django_filters",
     "corsheaders",
     "bootstrap4",
-
 ]
 
 MIDDLEWARE = [
@@ -145,12 +144,9 @@ REST_FRAMEWORK = {
 }
 
 
-
-
 # Domain names to be used
 SITE_ID = 1
 REST_USE_JWT = True
-
 
 
 # Database
@@ -160,7 +156,7 @@ REST_USE_JWT = True
 
 DATABASES = {
     "default": {
-        "ENGINE": config("DB_ENGINE", default="django.db.backends.sqlite3"),
+        "ENGINE": config("DB_ENGINE"),
         "NAME": config("DB_NAME", default=""),
         "USER": config("DB_USER", default=""),
         "PASSWORD": config("DB_PASSWORD", default=""),
@@ -168,7 +164,6 @@ DATABASES = {
         "PORT": config("DB_PORT", default=""),
     }
 }
-
 
 
 # Other settings...
