@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # Update to the latest version
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
@@ -32,7 +32,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Cache Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v2  # Update to the latest version
         with:
           path: |
             ~/.cache/pip
