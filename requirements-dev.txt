@@ -1,0 +1,30 @@
+# requirements-dev.txt
+
+# Testing
+pytest
+pytest-django
+coverage
+
+# Code Quality and Style
+flake8
+black
+
+# Database Testing
+pytest-django
+
+# Documentation
+sphinx
+sphinx-rtd-theme
+
+# Other Development Tools
+ipdb
+django-debug-toolbar
+django-extensions
+
+# Linting and Formatting
+isort
+black
+flake8
+
+# Dependency Management
+pip-tools

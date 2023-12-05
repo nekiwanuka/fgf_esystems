@@ -156,16 +156,16 @@ REST_USE_JWT = True
 
 # DATABASE SETTING
 
-DATABASES = {
-    "default": {
-        "ENGINE": config("DB_ENGINE"),
-        "NAME": config("DB_NAME", default=""),
-        "USER": config("DB_USER", default=""),
-        "PASSWORD": config("DB_PASSWORD", default=""),
-        "HOST": config("DB_HOST", default=""),
-        "PORT": config("DB_PORT", default=""),
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": config("DB_ENGINE"),
+#         "NAME": config("DB_NAME", default=""),
+#         "USER": config("DB_USER", default=""),
+#         "PASSWORD": config("DB_PASSWORD", default=""),
+#         "HOST": config("DB_HOST", default=""),
+#         "PORT": config("DB_PORT", default=""),
+#     }
+# }
 
 
 # Other settings...
