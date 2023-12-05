@@ -7,6 +7,7 @@ import datetime
 from datetime import timedelta
 from .utils.authentication_extensions import AuthTokenAuthenticationExtension
 from decouple import config
+from django.core.wsgi import get_wsgi_application
 
 import dotenv
 import environ
@@ -18,6 +19,8 @@ dotenv.load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+application = get_wsgi_application()
 
 
 # Quick-start development settings - unsuitable for production
@@ -97,7 +100,7 @@ CORS_ORIGIN_WHITELIST = [
 
 ROOT_URLCONF = "fgf.urls"
 
-SOCIALACCOUNT_PROVIDERS = {
+SOCIAL_ACCOUNT_PROVIDERS = {
     "google": {
         "SCOPE": [
             "profile",
